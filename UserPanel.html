@@ -1,0 +1,80 @@
+<form novalidate name="frmTransaction" id="frmTransaction" class="form-horizontal row-border">
+                            <div class="col-md-12">
+                                <div class="form-group" style="margin-top: 18px">
+                                    <label class="col-md-4 control-label" for="idExternalTransactionId">External Transaction Id</label>
+                                    <div class="col-md-7"> <input  type="text" id="idExternalTransactionId" name="ExternalTransaction" class="form-control" ng-model="ExternalTransactionId" ng-required="true"/>                                        
+                                    </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.ExternalTransaction.$touched && frmTransaction.ExternalTransaction.$invalid">
+                                        <small style="color: red; display:block; text-align: center;">Enter External Transaction Id</small>
+                                    </label>
+                                </div>                                                                
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idTransactionType">Transaction Type</label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" ng-model="TransactionType" name="TransactionType" ng-options="type.id as type.trtype for type in transactionTypes" ng-required="true">
+                                        </select>
+                                    </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.TransactionType.$touched && frmTransaction.TransactionType.$pristine">
+                                        <small style="color: red; display:block; text-align: center;">Select Transaction Type</small>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idCashAmount">Cash Amount</label>
+                                    <div class="col-md-7"> <input type="text" id="idCashAmount" name="CashAmount" class="form-control" ng-model="CashAmount" ng-required="true" /> </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.CashAmount.$touched && frmTransaction.CashAmount.$invalid">
+                                        <small style="color: red; display:block; text-align: center;">Enter Cash Amount</small>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idNAV">NAV</label>
+                                    <div class="col-md-7"> <input type="text" id="idNAV" class="form-control" name="NAV" ng-model="NAV" ng-required="true"/> </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.NAV.$touched && frmTransaction.NAV.$invalid">
+                                        <small style="color: red; display:block; text-align: center;">Enter NAV</small>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idNAVDate">NAV Date</label>
+                                    <div class="col-md-7"> <input type="text" id="idNAVDate" class="form-control" name="NAVDate" ng-model="NAVDate" ng-required="true"/> </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.NAVDate.$touched && frmTransaction.NAVDate.$invalid">
+                                        <small style="color: red; display:block; text-align: center;">Enter NAV Date</small>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idFundId">Fund Id</label>
+                                    <div class="col-md-7">  
+                                        <select class="form-control" ng-model="FundId" name="Funds" ng-options="fund.FundId as fund.FundName for fund in Funds" ng-required="true">
+                                        </select>
+                                    </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.Funds.$touched && frmTransaction.Funds.$invalid">
+                                        <small style="color: red; display:block; text-align: center;">Select Fund</small>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idAccountId">Account Id</label>
+                                    <div class="col-md-7"> <input type="text" id="idAccountId" class="form-control" name="AccountId" ng-model="AccountId" ng-required="true"/> </div>
+                                    <label style="margin-left: 220px" ng-show="frmTransaction.AccountId.$touched && frmTransaction.AccountId.$invalid">
+                                        <small style="color: red; display:block; text-align: center;">Enter Account Id</small>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="idTransactionStatus">Transaction Status</label>  
+                                    <div class="col-md-7"> 
+                                        <div class="btn-group">
+                                            <label class="btn btn-primary" ng-model="TransactionStatus" btn-radio="true">Active</label>
+                                            <label class="btn btn-primary" ng-model="TransactionStatus" btn-radio="false">Inactive</label>
+                                        </div> 
+                                    </div>
+                                </div>                            
+                                <div class="form-group" style="margin-top: 30px">
+                                    <div class="col-md-4"> </div>
+                                    <div class="col-md-7">
+                                        <button style="margin-right: 20px" id="save" class="btn {{buttonStyle}} margin-right-btn" ng-click="SaveUpdate()" ng-disabled="frmTransaction.$invalid">
+                                            <i class="fa fa-save"></i> {{btnText}}
+                                        </button>
+                                        <span id="clear" class="btn btn-default margin-right-btn" ng-click="Clear()">
+                                            <i class="fa fa-window-close"></i> Clear
+                                        </span>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </form>
